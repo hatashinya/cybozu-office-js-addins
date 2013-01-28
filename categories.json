@@ -1,0 +1,7 @@
+﻿[
+{ "name": "Common", "title": "共通" },
+{ "name": "Header", "title": "ヘッダ" },
+{ "name": "AGIndex", "title": "トップページ" },
+{ "name": "Thread", "title": "掲示板・メッセージ" },
+{ "name": "Other", "title": "その他" }
+]
