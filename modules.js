@@ -56,6 +56,7 @@ __modules.push({
 __modules.push({
 	name: 'ThreadEnlargeUserIcons',
 	desc: 'ユーザーのアイコンのサイズを 32x32 で表示する。',
+	link: true,
 	page: ['BulletinView', 'MyFolderMessageView'],
 	func: function () {
 		Ginger.enlargeUserIcons = function ($parent) {
