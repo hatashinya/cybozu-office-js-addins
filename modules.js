@@ -1,6 +1,7 @@
 ﻿__modules.push({
 	name: 'CommonHideAppMenuToggler',
 	desc: 'アプリケーションメニューの開閉ボタンを隠す。',
+	link: true,
 	func: function () {
 		$('#appmenuToggler').hide().parent().css('border-bottom', '1px solid #999');
 	}
@@ -9,6 +10,7 @@
 __modules.push({
 	name: 'CommonStandardizeButton',
 	desc: 'オレンジ色のボタンを通常表示にする。',
+	link: true,
 	func: function () {
 		$('input.vr_hotButton').removeClass('vr_hotButton').addClass('vr_stdButton');
 		$('button.vr_hotButton').removeClass('vr_hotButton').addClass('vr_stdButton');
@@ -18,6 +20,7 @@ __modules.push({
 __modules.push({
 	name: 'CommonStandardizeLink',
 	desc: 'オレンジ色のリンクを通常表示にする。',
+	link: true,
 	func: function () {
 		$('a.vr_hotButton').removeClass('vr_hotButton');
 	}
@@ -26,6 +29,7 @@ __modules.push({
 __modules.push({
 	name: 'HeaderHideSearchBox',
 	desc: '検索ボックスを隠す。',
+	link: true,
 	func: function () {
 		$('.vr_headbarSearch form').hide();
 	}
@@ -34,6 +38,7 @@ __modules.push({
 __modules.push({
 	name: 'HeaderHideAppMenu',
 	desc: '「メニュー」を隠す。',
+	link: true,
 	func: function () {
 		$('#header-menu-application').hide();
 	}
@@ -42,6 +47,7 @@ __modules.push({
 __modules.push({
 	name: 'HeaderHideLinkList',
 	desc: '「リンク」を隠す。',
+	link: true,
 	func: function () {
 		$('#header-menu-linklist').hide();
 	}
@@ -80,6 +86,7 @@ __modules.push({
 __modules.push({
 	name: 'ThreadCodePrettify',
 	desc: '{code}...{/code}で囲まれたコードに対して、シンタックスハイライトを行う。',
+	link: true,
 	page: ['BulletinView', 'MyFolderMessageView'],
 	lib: ['prettify'],
 	func: function () {
@@ -156,6 +163,7 @@ __modules.push({
 __modules.push({
 	name: 'ThreadEmbedYouTube',
 	desc: 'YouTube 動画をインライン表示する。',
+	link: true,
 	page: ['BulletinView', 'MyFolderMessageView'],
 	embed: true,
 	func: function (anchor) {
@@ -176,6 +184,7 @@ __modules.push({
 __modules.push({
 	name: 'ThreadToDoMenuOnFollow',
 	desc: '「ToDoに登録する」メニューをフォローに加える。',
+	link: true,
 	page: ['BulletinView', 'MyFolderMessageView', 'ToDoEntry'],
 	func: function () {
 		if (CustomizeJS.page == 'ToDoEntry') {
@@ -226,6 +235,7 @@ __modules.push({
 __modules.push({
 	name: 'BulletinHideListPerCategory',
 	desc: '掲示板のトップで、カテゴリごとの掲示一覧を隠す。',
+	link: true,
 	func: function () {
 		$('table.mutlicol').hide();
 	}
@@ -234,6 +244,7 @@ __modules.push({
 __modules.push({
 	name: 'WorkFlowConfirmBeforeApprove',
 	desc: 'ワークフローの承認・決裁のとき、ボタン押下の後に確認ダイアログを表示する。',
+	link: true,
 	page: 'WorkFlowHandle',
 	func: function () {
 		$('input[name="Approve"]').click(function () {
@@ -247,6 +258,7 @@ __modules.push({
 __modules.push({
 	name: 'TimeCardFutureNote',
 	desc: 'タイムカードで、未来の日付の備考欄に書き込みできるようにする。',
+	link: true,
 	page: 'TimeCardIndex',
 	func: function () {
 		var yearMonth = $('div.vr_eNavi').text();
