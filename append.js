@@ -267,7 +267,7 @@ $(document).ready(function () {
 				//Ginger.loadLibrary('jquery-ui');
 				Ginger.loadLibrary('twitter-bootstrap');
 				setTimeout(function () {
-					if ($.ui) {
+					if ($.fn.modal) {
 						Ginger.initSettingsDialog();
 						//$('#oc-settings-dialog').dialog('open');
 						$('#oc-settings-dialog').modal();
