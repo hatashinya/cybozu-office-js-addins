@@ -123,7 +123,7 @@ Ginger.initSettingsDialog = function () {
 		var category = Ginger.categories[i];
 		if (!category.modules) continue;
 		if (!defaultTab) defaultTab = category.name;
-		dlgHtml += '<li><a href="#oc-settings-' + category.name + '" data-toggle="tab">' + Ginger.htmlEscape(category.title) + '</a></li>';
+		dlgHtml += '<li><a href="#oc-settings-' + category.name + '" data-toggle="tab" style="text-decoration: none;">' + Ginger.htmlEscape(category.title) + '</a></li>';
 	}
 	dlgHtml += '</ul><div class="tab-content" style="padding: 0 20px;">';
 	for (i = 0; i < Ginger.categories.length; i++) {
@@ -152,7 +152,7 @@ Ginger.initSettingsDialog = function () {
 	$('a[data-toggle="tab"').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
-	}).css('text-decoration', 'none');
+	});
 	$('#oc-settings-ok').click(function () {
 		var json = '{';
 		$('#oc-settings-dialog input:checked').each(function () {
