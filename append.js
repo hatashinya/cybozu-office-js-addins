@@ -137,7 +137,7 @@ Ginger.initSettingsDialog = function () {
 			var module = category.modules[j];
 			var checkboxAttr = module.required ? ' checked="checked" disabled="disabled" class="checkbox"' : ' class="checkbox oc-settings-selectable"';
 			var requiredMark = module.required ? ' <span style="color: red;">*</span>' : '';
-			dlgHtml += '<div><input type="checkbox" id="' + module.name + '"' + checkboxAttr + ' /><label for="' + module.name + '">' + Ginger.htmlEscape(module.desc) + requiredMark + '</label></div>';
+			dlgHtml += '<div><label for="' + module.name + '"><input type="checkbox" id="' + module.name + '"' + checkboxAttr + ' />' + Ginger.htmlEscape(module.desc) + requiredMark + '</label></div>';
 		}
 		dlgHtml += '</div>';
 	}
@@ -150,7 +150,7 @@ Ginger.initSettingsDialog = function () {
 	Ginger.reflectSettings();
 
 	if (defaultTab) {
-		$('#oc-settings-' + defaultTab).tab('show');
+		$('a[href="#oc-settings-' + defaultTab + '"]').tab('show');
 	}
 	$('a[data-toggle="tab"').click(function (e) {
 		e.preventDefault();
