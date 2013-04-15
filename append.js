@@ -114,9 +114,6 @@ Ginger.initSettingsDialog = function () {
 	}
 
 	// dialog
-	//var dlgHtml = '<div id="oc-settings-dialog" title="サイボウズ Office のカスタマイズ" style="font-size: 80%;">'
-	//	+ '<p>カスタマイズする項目を選んでください。<br /><span style="color: red;">*</span> が付いたものは外すことができません。</p>'
-	//	+ '<form><div id="oc-settings-tabs"><ul>';
 	var dlgHtml = '<div id="oc-settings-dialog" class="modal hide fade" role="dialog" aria-hidden="true">'
 		+ '<div class="modal-header"><button type="button" class="close oc-settings-cancel" data-dismiss="modal" aria-hidden="true">&times;</button>'
 		+ '<h3>サイボウズ Office のカスタマイズ</h3></div>'
@@ -128,16 +125,16 @@ Ginger.initSettingsDialog = function () {
 		if (!defaultTab) defaultTab = category.name;
 		dlgHtml += '<li><a href="#oc-settings-' + category.name + '" data-toggle="tab">' + Ginger.htmlEscape(category.title) + '</a></li>';
 	}
-	dlgHtml += '</ul><div class="tab-content">';
+	dlgHtml += '</ul><div class="tab-content" style="padding: 0 20px;">';
 	for (i = 0; i < Ginger.categories.length; i++) {
 		var category = Ginger.categories[i];
 		if (!category.modules) continue;
 		dlgHtml += '<div id="oc-settings-' + category.name + '" class="oc-settings-panel tab-pane">';
 		for (var j = 0; j < category.modules.length; j++) {
 			var module = category.modules[j];
-			var checkboxAttr = module.required ? ' checked="checked" disabled="disabled" class="checkbox"' : ' class="checkbox oc-settings-selectable"';
+			var checkboxAttr = module.required ? ' checked="checked" disabled="disabled"' : ' class="oc-settings-selectable"';
 			var requiredMark = module.required ? ' <span style="color: red;">*</span>' : '';
-			dlgHtml += '<div><label for="' + module.name + '"><input type="checkbox" id="' + module.name + '"' + checkboxAttr + ' />' + Ginger.htmlEscape(module.desc) + requiredMark + '</label></div>';
+			dlgHtml += '<div><label for="' + module.name + '" class="checkbox"><input type="checkbox" id="' + module.name + '"' + checkboxAttr + ' /> ' + Ginger.htmlEscape(module.desc) + requiredMark + '</label></div>';
 		}
 		dlgHtml += '</div>';
 	}
