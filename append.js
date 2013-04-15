@@ -25,6 +25,10 @@ Ginger.loadLibrary = function (name) {
 			Ginger.loadStyle('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/redmond/jquery-ui.css');
 			Ginger.loadScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js');
 			break;
+		case 'twitter-bootstrap':
+			Ginger.loadStyle('https://js.cybozu.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css');
+			Ginger.loadScript('https://js.cybozu.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js');
+			break;
 		case 'prettify':
 			Ginger.loadStyle('https://js.cybozu.com/prettify/1-Jun-2011/prettify.css');
 			Ginger.loadScript('https://js.cybozu.com/prettify/1-Jun-2011/prettify.js');
@@ -110,59 +114,53 @@ Ginger.initSettingsDialog = function () {
 	}
 
 	// dialog
-	var dlgHtml = '<div id="oc-settings-dialog" title="サイボウズ Office のカスタマイズ" style="font-size: 80%;">'
-		+ '<p>カスタマイズする項目を選んでください。<br /><span style="color: red;">*</span> が付いたものは外すことができません。</p>'
-		+ '<form><div id="oc-settings-tabs"><ul>';
+	//var dlgHtml = '<div id="oc-settings-dialog" title="サイボウズ Office のカスタマイズ" style="font-size: 80%;">'
+	//	+ '<p>カスタマイズする項目を選んでください。<br /><span style="color: red;">*</span> が付いたものは外すことができません。</p>'
+	//	+ '<form><div id="oc-settings-tabs"><ul>';
+	var dlgHtml = '<div id="oc-settings-dialog" class="modal hide fade" role="dialog" aria-hidden="true">'
+		+ '<div class="modal-header"><button type="button" class="close oc-settings-cancel" data-dismiss="modal" aria-hidden="true">&times;</button>'
+		+ '<h3>サイボウズ Office のカスタマイズ</h3></div>'
+		+ '<div class="modal-body"><form><ul class="nav nav-tabs">';
 	for (i = 0; i < Ginger.categories.length; i++) {
 		var category = Ginger.categories[i];
 		if (!category.modules) continue;
-		dlgHtml += '<li><a href="#oc-settings-' + category.name + '">' + Ginger.htmlEscape(category.title) + '</a></li>';
+		dlgHtml += '<li><a href="#oc-settings-' + category.name + '" data-toggle="tab">' + Ginger.htmlEscape(category.title) + '</a></li>';
 	}
-	dlgHtml += '</ul>';
+	dlgHtml += '</ul><div class="tab-content">';
 	for (i = 0; i < Ginger.categories.length; i++) {
 		var category = Ginger.categories[i];
 		if (!category.modules) continue;
-		dlgHtml += '<div id="oc-settings-' + category.name + '" class="oc-settings-panel">';
+		dlgHtml += '<div id="oc-settings-' + category.name + '" class="oc-settings-panel tab-pane">';
 		for (var j = 0; j < category.modules.length; j++) {
 			var module = category.modules[j];
-			var checkboxAttr = module.required ? ' checked="checked" disabled="disabled"' : ' class="oc-settings-selectable"';
+			var checkboxAttr = module.required ? ' checked="checked" disabled="disabled" class="checkbox"' : ' class="checkbox oc-settings-selectable"';
 			var requiredMark = module.required ? ' <span style="color: red;">*</span>' : '';
 			dlgHtml += '<div><input type="checkbox" id="' + module.name + '"' + checkboxAttr + ' /><label for="' + module.name + '">' + Ginger.htmlEscape(module.desc) + requiredMark + '</label></div>';
 		}
 		dlgHtml += '</div>';
 	}
-	dlgHtml += '</div></form></div>';
+	dlgHtml += '</div></form></div><div class="modal-footer">'
+		+ '<button type="button" id="oc-settings-ok" class="btn btn-primary" data-dismiss="modal" aria-hidden="true"><i class="icon-ok icon-white"></i> OK</button>'
+		+ '<button type="button" class="btn oc-settings-cancel" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> キャンセル</button>'
+		+ '</div></div>';
 	$('body').append(dlgHtml);
 
 	Ginger.reflectSettings();
 
-	$('#oc-settings-tabs').tabs();
-	$('#oc-settings-dialog').dialog({
-		autoOpen: false,
-		modal: true,
-		width: 700,
-		resizable: true,
-		buttons: [{
-			text: 'OK',
-			click: function () {
-				var json = '{';
-				$('#oc-settings-dialog input:checked').each(function () {
-					if (json != '{') json += ',';
-					json += '"' + this.id + '":true';
-				});
-				json += '}';
-				localStorage[Ginger.settingsKey] = json;
-				Ginger.settings = eval('(' + json + ')');
-				$(this).dialog('close');
-				location.reload();
-			}
-		}, {
-			text: 'キャンセル',
-			click: function () {
-				Ginger.reflectSettings();
-				$(this).dialog('close');
-			}
-		}]
+	//$('#oc-settings-tabs').tabs();
+	$('#oc-settings-ok').click(function () {
+		var json = '{';
+		$('#oc-settings-dialog input:checked').each(function () {
+			if (json != '{') json += ',';
+			json += '"' + this.id + '":true';
+		});
+		json += '}';
+		localStorage[Ginger.settingsKey] = json;
+		Ginger.settings = eval('(' + json + ')');
+		location.reload();
+	});
+	$('.oc-settings-cancel').click(function () {
+		Gigner.reflectSettings();
 	});
 };
 
@@ -253,15 +251,18 @@ $(document).ready(function () {
 	$('.vr_headerPersonalSettings').parent().after(menuHtml);
 	try {
 		$('#oc-open-settings-link').click(function (event) {
-			if ($.ui) {
+			if ($.fn.modal) {
 				Ginger.initSettingsDialog();
-				$('#oc-settings-dialog').dialog('open');
+				//$('#oc-settings-dialog').dialog('open');
+				$('#oc-settings-dialog').modal();
 			} else {
-				Ginger.loadLibrary('jquery-ui');
+				//Ginger.loadLibrary('jquery-ui');
+				Ginger.loadLibrary('twitter-bootstrap');
 				setTimeout(function () {
 					if ($.ui) {
 						Ginger.initSettingsDialog();
-						$('#oc-settings-dialog').dialog('open');
+						//$('#oc-settings-dialog').dialog('open');
+						$('#oc-settings-dialog').modal();
 					} else {
 						setTimeout(arguments.callee, 100);
 					}
