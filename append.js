@@ -121,9 +121,11 @@ Ginger.initSettingsDialog = function () {
 		+ '<div class="modal-header"><button type="button" class="close oc-settings-cancel" data-dismiss="modal" aria-hidden="true">&times;</button>'
 		+ '<h3>サイボウズ Office のカスタマイズ</h3></div>'
 		+ '<div class="modal-body"><form><ul class="nav nav-tabs">';
+	var defaultTab;
 	for (i = 0; i < Ginger.categories.length; i++) {
 		var category = Ginger.categories[i];
 		if (!category.modules) continue;
+		if (!defaultTab) defaultTab = category.name;
 		dlgHtml += '<li><a href="#oc-settings-' + category.name + '" data-toggle="tab">' + Ginger.htmlEscape(category.title) + '</a></li>';
 	}
 	dlgHtml += '</ul><div class="tab-content">';
@@ -147,7 +149,13 @@ Ginger.initSettingsDialog = function () {
 
 	Ginger.reflectSettings();
 
-	//$('#oc-settings-tabs').tabs();
+	if (defaultTab) {
+		$('#oc-settings-' + defaultTab).tab('show');
+	}
+	$('a[data-toggle="tab"').click(function (e) {
+		e.preventDefault();
+		$(this).tab('show');
+	})
 	$('#oc-settings-ok').click(function () {
 		var json = '{';
 		$('#oc-settings-dialog input:checked').each(function () {
@@ -160,7 +168,7 @@ Ginger.initSettingsDialog = function () {
 		location.reload();
 	});
 	$('.oc-settings-cancel').click(function () {
-		Gigner.reflectSettings();
+		Ginger.reflectSettings();
 	});
 };
 
