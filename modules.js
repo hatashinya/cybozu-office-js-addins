@@ -307,8 +307,8 @@ __modules.push({
 			if (!$year.length) return;			
 			for (var i = 0 ; i < extension ; i++) {
 				var value = year + i + 1;
-				if ($setYear.find('option[value="' + value + '"]').length == 0) {
-					$setYear.append('<option value="' + value + '">' + value + '年</option>');
+				if ($year.find('option[value="' + value + '"]').length == 0) {
+					$year.append('<option value="' + value + '">' + value + '年</option>');
 				}
 			}
 		}
