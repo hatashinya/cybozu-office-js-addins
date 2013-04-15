@@ -299,7 +299,7 @@ __modules.push({
 __modules.push({
 	name: 'ProjectExtendYearInput',
 	desc: 'プロジェクトの入力画面で設定する期間で指定できる年を「今年＋15年」にする。',
-	page: ['ProjectAdd', 'ProjectModify'],
+	page: ['ProjectAdd', 'ProjectModify', 'ProjectThemeAdd', 'ProjectThemeModify', 'ProjectTaskAdd', 'ProjectTaskModify', 'ProjectMilestoneAdd', 'ProjectMilestoneModify'],
 	func: function () {
 		var extension = 15;
 		var year = (new Date()).getFullYear();
