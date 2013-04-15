@@ -152,7 +152,7 @@ Ginger.initSettingsDialog = function () {
 	$('a[data-toggle="tab"').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
-	})
+	}).css('text-decoration', 'none');
 	$('#oc-settings-ok').click(function () {
 		var json = '{';
 		$('#oc-settings-dialog input:checked').each(function () {
