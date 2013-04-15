@@ -295,3 +295,24 @@ __modules.push({
 		});
 	}
 });
+
+__modules.push({
+	name: 'ProjectExtendYearInput',
+	desc: 'プロジェクトの入力画面で設定する期間で指定できる年を「今年＋15年」にする。',
+	page: ['ProjectAdd', 'ProjectModify'],
+	func: function () {
+		var extension = 15;
+		var year = (new Date()).getFullYear();
+		function extendYear($year) {
+			if (!$year.length) return;			
+			for (var i = 0 ; i < extension ; i++) {
+				var value = year + i + 1;
+				if ($setYear.find('option[value="' + value + '"]').length == 0) {
+					$setYear.append('<option value="' + value + '">' + value + '年</option>');
+				}
+			}
+		}
+		extendYear($('select[name="SetDate.Year"]'));
+		extendYear($('select[name="EndDate.Year"]'));
+	}
+});
