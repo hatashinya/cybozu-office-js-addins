@@ -258,15 +258,12 @@ $(document).ready(function () {
 		$('#oc-open-settings-link').click(function (event) {
 			if ($.fn.modal) {
 				Ginger.initSettingsDialog();
-				//$('#oc-settings-dialog').dialog('open');
 				$('#oc-settings-dialog').modal();
 			} else {
-				//Ginger.loadLibrary('jquery-ui');
 				Ginger.loadLibrary('twitter-bootstrap');
 				setTimeout(function () {
 					if ($.fn.modal) {
 						Ginger.initSettingsDialog();
-						//$('#oc-settings-dialog').dialog('open');
 						$('#oc-settings-dialog').modal();
 					} else {
 						setTimeout(arguments.callee, 100);
