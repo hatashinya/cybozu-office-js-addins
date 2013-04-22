@@ -297,6 +297,20 @@ __modules.push({
 });
 
 __modules.push({
+	name: 'ScheduleCreatorCanUpate',
+	desc: 'スケジュール/設備予約で登録者以外に変更・削除のリンクを隠す。',
+	page: ['ScheduleView'],
+	func: function () {
+		var loginUser = $.trim($('li#header-menu-user .yuimenubaritemlabelinner').text());
+		var creator = $('table.vr_viewTitleSub td:eq(2)').text();
+		creator = $.trim($.trim(creator).replace(/[0-9]{4}\/[0-9]+\/[0-9]+\(.\)\s[0-9]+\:[0-9]+$/, ''));
+		if (creator != me) {
+			$('div#content-wrapper div.content div.menubar table.layout span.menubarTextLink').hide();
+		}
+	}
+});
+
+__modules.push({
 	name: 'ProjectExtendYearInput',
 	desc: 'プロジェクトの各種入力画面で、指定できる年を「今年＋15年」にする。',
 	page: ['ProjectAdd', 'ProjectModify', 'ProjectThemeAdd', 'ProjectThemeModify', 'ProjectTaskAdd', 'ProjectTaskModify', 'ProjectMilestoneAdd', 'ProjectMilestoneModify'],
