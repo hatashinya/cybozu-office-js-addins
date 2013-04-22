@@ -69,6 +69,10 @@
 				var method = $(this).attr('calc-method');
 				(Ginger.Calculator[method])();
 			});
+			if (!window.clipboardData) {
+				$('.calc-button[calc-method="Copy"]').prop('disabled', true);
+				$('.calc-button[calc-method="Paste"]').prop('disabled', true);
+			}
 
 			Ginger.Calculator = {
 				state : "A",
