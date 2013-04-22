@@ -304,7 +304,7 @@ __modules.push({
 		var loginUser = $.trim($('li#header-menu-user .yuimenubaritemlabelinner').text());
 		var creator = $('table.vr_viewTitleSub td:eq(2)').text();
 		creator = $.trim($.trim(creator).replace(/[0-9]{4}\/[0-9]+\/[0-9]+\(.\)\s[0-9]+\:[0-9]+$/, ''));
-		if (creator != me) {
+		if (creator != loginUser) {
 			$('div#content-wrapper div.content div.menubar table.layout span.menubarTextLink').hide();
 		}
 	}
