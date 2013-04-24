@@ -76,8 +76,8 @@
 			});
 
 			function focusInput() {
-				var form = $('form :focus').get(0);
-				return form && ('tagName' in form);
+				var element = $('form :focus').get(0);
+				return element && ('tagName' in element);
 			}
 			$(window).keydown(function (e) {
 				if ($('#calc-dlg').css('display') != 'block' || focusInput()) return;
