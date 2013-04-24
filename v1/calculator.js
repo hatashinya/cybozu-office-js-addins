@@ -65,14 +65,61 @@
 				});
 				return false;
 			});
-			$('.calc-button').click(function () {
-				var method = $(this).attr('calc-method');
-				(Ginger.Calculator[method])();
-			});
 			if (!window.clipboardData) {
 				$('.calc-button[calc-method="Copy"]').prop('disabled', true);
 				$('.calc-button[calc-method="Paste"]').prop('disabled', true);
 			}
+
+			$('.calc-button').click(function () {
+				var method = $(this).attr('calc-method');
+				(Ginger.Calculator[method])();
+			});
+
+			function focusInput() {
+				var form = $('form :focus').get(0);
+				return form && ('tagName' in form);
+			}
+			$(window).keydown(function (e) {
+				if ($('#calc-dlg').css('display') != 'block' || focusInput()) return;
+				switch (e.keyCode) {
+					case 13: Ginger.Calculator.Equal(); break;
+					case 27: Ginger.Calculator.AC(); break;
+
+					case 48: Ginger.Calculator.N0(); break;
+					case 49: Ginger.Calculator.N1(); break;
+					case 50: Ginger.Calculator.N2(); break;
+					case 51: Ginger.Calculator.N3(); break;
+					case 52: Ginger.Calculator.N4(); break;
+					case 53: if (e.shiftKey == true)  { Ginger.Calculator.Percent(); } else { Ginger.Calculator.N5(); } break;
+					case 54: Ginger.Calculator.N6(); break;
+					case 55: Ginger.Calculator.N7(); break;
+					case 56: Ginger.Calculator.N8(); break;
+					case 57: Ginger.Calculator.N9(); break;
+
+					case 186: if (e.shiftKey == true) { Ginger.Calculator.Times(); } break;
+					case 187: if (e.shiftKey == true) { Ginger.Calculator.Plus(); } break;
+					case 189: Ginger.Calculator.Minus(); break;
+					case 190: Ginger.Calculator.Point(); break;
+					case 191: Ginger.Calculator.Div(); break;
+
+					case 96: Ginger.Calculator.N0(); break;
+					case 97: Ginger.Calculator.N1(); break;
+					case 98: Ginger.Calculator.N2(); break;
+					case 99: Ginger.Calculator.N3(); break;
+					case 100: Ginger.Calculator.N4(); break;
+					case 101: Ginger.Calculator.N5(); break;
+					case 102: Ginger.Calculator.N6(); break;
+					case 103: Ginger.Calculator.N7(); break;
+					case 104: Ginger.Calculator.N8(); break;
+					case 105: Ginger.Calculator.N9(); break;
+					case 106: Ginger.Calculator.Times(); break;
+					case 107: Ginger.Calculator.Plus(); break;
+					case 109: Ginger.Calculator.Minus(); break;
+					case 110: Ginger.Calculator.Point(); break;
+					case 111: Ginger.Calculator.Div(); break;
+				}
+				return false;
+			});
 
 			Ginger.Calculator = {
 				state : "A",
