@@ -154,7 +154,7 @@ __modules.push({
 		});
 
 		if (prettify) {
-			prettyPrint();
+			//prettyPrint();
 			$lastFollowList.find('pre.prettyprint').css('font-family', "Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace")
 				.css('padding', '0.5em').css('line-height', '1.1').css('background', '#fff');
 		}
