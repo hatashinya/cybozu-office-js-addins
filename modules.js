@@ -299,6 +299,7 @@ __modules.push({
 __modules.push({
 	name: 'ScheduleCreatorCanUpate',
 	desc: 'スケジュール/設備予約で登録者以外に変更・削除のリンクを隠す。',
+	link: true,
 	page: ['ScheduleView'],
 	func: function () {
 		var loginUser = $.trim($('li#header-menu-user .yuimenubaritemlabelinner').text());
@@ -313,6 +314,7 @@ __modules.push({
 __modules.push({
 	name: 'ProjectExtendYearInput',
 	desc: 'プロジェクトの各種入力画面で、指定できる年を「今年＋15年」にする。',
+	link: true,
 	page: ['ProjectAdd', 'ProjectModify', 'ProjectThemeAdd', 'ProjectThemeModify', 'ProjectTaskAdd', 'ProjectTaskModify', 'ProjectMilestoneAdd', 'ProjectMilestoneModify'],
 	func: function () {
 		var extension = 15;
