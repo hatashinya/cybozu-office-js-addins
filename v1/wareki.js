@@ -30,7 +30,7 @@ __modules.push({
 			$('#wareki-title').css({ padding: '5px', width: '252px', float: 'left', background: '#cfd', cursor: 'move' });
 			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '232px', padding: '5px', width: '20px', height: '20px', background: '#cfd', float: 'right', cursor: 'pointer' });
 			$('#wareki-content').css({ padding: '5px', 'text-align': 'center' });
-			$('#wareki-content input[type=text]').css({ padding: '5px', width: '200px', 'text-align': 'right' });
+			$('#wareki-content input[type=text]').css({ 'margin-bottom': '5px', padding: '5px', width: '200px', 'text-align': 'right' });
 			$('#wareki-content input[type=button]').css({ padding: '5px', width: '100px' });
 			$('.wareki-field-title').css('font-weight', 'bold');
 			$('#wareki2year').click(function () { wareki2year(); });
