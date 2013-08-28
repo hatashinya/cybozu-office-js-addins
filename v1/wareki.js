@@ -18,9 +18,9 @@ __modules.push({
 		function initializeWareki() {
 			var html = '<div id="wareki-dlg"><div id="wareki-title">和暦変換</div><div id="wareki-close">&times;</div><br style="clear: both;" />'
 				+ '<div id="wareki-content"><div class="wareki-field-title">和暦</div>'
-				+ '<input type="radio" name="wareki-nengo" value="t" /><label>大正</label>'
-				+ '<input type="radio" name="wareki-nengo" value="s" /><label>昭和</label>'
-				+ '<input type="radio" name="wareki-nengo" value="h" checked="checked" /><label>平成</label><br />'
+				+ '<label for="wareki-taisho"><input type="radio" id="wareki-taisho" name="wareki-nengo" value="t" />大正</label>'
+				+ '<label for="wareki-showa"><input type="radio" id="wareki-showa" name="wareki-nengo" value="s" />昭和</label>'
+				+ '<label for="wareki-heisei"><input type="radio" id="wareki-heisei" name="wareki-nengo" value="h" checked="checked" />平成</label><br />'
 				+ '<input type="text" id="wareki-wareki" />年<br />'
 				+ '<input type="button" id="wareki2year" value="和暦から西暦↓" />'
 				+ '<input type="button" id="year2wareki" value="↑西暦から和暦" /><br />'
