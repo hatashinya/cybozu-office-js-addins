@@ -21,23 +21,83 @@ __modules.push({
 				+ '<input type="radio" name="wareki-nengo" value="t" /><label>大正</label>'
 				+ '<input type="radio" name="wareki-nengo" value="s" /><label>昭和</label>'
 				+ '<input type="radio" name="wareki-nengo" value="h" checked="checked" /><label>平成</label><br />'
-				+ '<input type="text" id="wareki-year" />年<br />'
+				+ '<input type="text" id="wareki-wareki" />年<br />'
 				+ '<input type="button" id="wareki2year" value="和暦から西暦↓" />'
 				+ '<input type="button" id="year2wareki" value="↑西暦から和暦" /><br />'
-				+ '<div class="wareki-field-title">西暦</div><input type="text" id="wareki_new_year" />年</div></div>';
+				+ '<div class="wareki-field-title">西暦</div><input type="text" id="wareki-year" />年</div></div>';
 			$('body').append(html);
 			var $dlg = $('#wareki-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', width: '220px', height: '180px', position: 'absolute', display: 'none', 'z-index': '9998' });
 			$('#wareki-title').css({ width: '198px', height: '22px', float: 'left', background: '#cfd', cursor: 'move' });
 			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '198px', width: '22px', height: '22px', background: '#cfd', float: 'right', cursor: 'pointer' });
 			$('#wareki-content').css({ padding: '0', width: '220px', height: '158px', 'text-align': 'center' });
-			$('#wareki-content input[type=text]').css({ width: '160px', 'text-align': 'right' });
+			$('#wareki-content input[type=text]').css({ width: '160px', height: '22px', 'text-align': 'right' });
 			$('#wareki-content input[type=button]').css('width', '100px');
 			$('.wareki-field-title').css('font-weight', 'bold');
+			$('#wareki2year').click(function () { wareki2year(); });
+			$('#year2wareki').click(function () { year2wareki(); });
+			$('#wareki-wareki').keydown(function (event) { if (event.which == 13) wareki2year(); });
+			$('#wareki-year').keydown(function (event) { if (event.which == 13) year2wareki(); });
 
 			var wx = $(document).scrollLeft() + ($(window).width() - $dlg.outerWidth()) / 2;
 			var wy = $(document).scrollTop() + ($(window).height() - $dlg.outerHeight()) / 2;
 			$dlg.css({ top: wy, left: wx });
 			$('#wareki-close').click(function () { $('#wareki-dlg').hide(); });
+			$('#wareki-title').mousedown(function (e) {
+				var mx = e.pageX;
+				var my = e.pageY;
+				$(document).on('mousemove.wareki-dlg', function (e) {
+					wx += e.pageX - mx;
+					wy += e.pageY - my;
+					$('#wareki-dlg').css({ top: wy, left: wx });
+					mx = e.pageX;
+					my = e.pageY;
+					return false;
+				}).one('mouseup', function (e) {
+					$(document).off('mousemove.wareki-dlg');
+				});
+				return false;
+			});
+		}
+
+		function wareki2year() {
+			var wareki = $('#wareki-wareki').val();
+			if (wareki.match(/[^0-9]+/)) {
+				alert('整数を入力してください。');
+			} else {
+				wareki = parseInt(wareki, 10);
+				switch ($('#wareki-content input[name="wareki-nengo"]:checked').val()) {
+					case 'h': $('#wareki-year').val(wareki + 1988); break;
+					case 's': $('#wareki-year').val(wareki + 1925); break;
+					case 't': $('#wareki-year').val(wareki + 1911); break;
+				}
+			}
+		}
+
+		function year2wareki() {
+			var year = $('#wareki-year').val();
+			if (wareki.match(/[^0-9]+/)) {
+				alert('整数を入力してください。');
+			} else {
+				year = parseInt(year, 10);
+				if (year >= 1990) {
+					$('#wareki-content input[name="wareki-nengo"]').val(['h']);
+					$('#wareki-wareki').val(year - 1988);
+				} else if (year == 1989) {
+					$('#wareki-content input[name="wareki-nengo"]').removeAttr('checked');
+					$('#wareki-wareki').val('昭和64/平成1');
+				} else if (year >= 1927) {
+					$('#wareki-content input[name="wareki-nengo"]').val(['s']);
+					$('#wareki-wareki').val(year - 1925);
+				} else if (year == 1926) {
+					$('#wareki-content input[name="wareki-nengo"]').removeAttr('checked');
+					$('#wareki-wareki').val('大正15/昭和1');
+				} else if (year >= 1912) {
+					$('#wareki-content input[name="wareki-nengo"]').val(['t']);
+					$('#wareki-wareki').val(year - 1911);
+				} else {
+					alert('対応範囲を超えています。');
+				}
+			}
 		}
 	}	
 });
