@@ -30,7 +30,7 @@ __modules.push({
 			$('#wareki-title').css({ width: '198px', height: '22px', float: 'left', background: '#cfd', cursor: 'move' });
 			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '198px', width: '22px', height: '22px', background: '#cfd', float: 'right', cursor: 'pointer' });
 			$('#wareki-content').css({ padding: '0', width: '220px', height: '158px', 'text-align': 'center' });
-			$('#wareki-content input[type=text]').css({ width: '160px', height: '22px', 'text-align': 'right' });
+			$('#wareki-content input[type=text]').css({ width: '160px', height: '16px', padding: '2px', 'text-align': 'right' });
 			$('#wareki-content input[type=button]').css('width', '100px');
 			$('.wareki-field-title').css('font-weight', 'bold');
 			$('#wareki2year').click(function () { wareki2year(); });
@@ -75,7 +75,7 @@ __modules.push({
 
 		function year2wareki() {
 			var year = $('#wareki-year').val();
-			if (wareki.match(/[^0-9]+/)) {
+			if (year.match(/[^0-9]+/)) {
 				alert('整数を入力してください。');
 			} else {
 				year = parseInt(year, 10);
