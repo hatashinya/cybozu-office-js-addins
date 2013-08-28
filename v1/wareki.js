@@ -28,7 +28,7 @@ __modules.push({
 			$('body').append(html);
 			var $dlg = $('#wareki-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', position: 'absolute', display: 'none', 'z-index': '9998' });
 			$('#wareki-title').css({ padding: '5px', width: '252px', float: 'left', background: '#cfd', cursor: 'move' });
-			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '232px', padding: '5px' width: '20px', height: '20px', background: '#cfd', float: 'right', cursor: 'pointer' });
+			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '232px', padding: '5px', width: '20px', height: '20px', background: '#cfd', float: 'right', cursor: 'pointer' });
 			$('#wareki-content').css({ padding: '5px', 'text-align': 'center' });
 			$('#wareki-content input[type=text]').css({ padding: '5px', width: '200px', 'text-align': 'right' });
 			$('#wareki-content input[type=button]').css({ padding: '5px', width: '100px' });
