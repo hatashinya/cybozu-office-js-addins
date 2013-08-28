@@ -17,21 +17,21 @@ __modules.push({
 
 		function initializeWareki() {
 			var html = '<div id="wareki-dlg"><div id="wareki-title">和暦変換</div><div id="wareki-close">&times;</div><br style="clear: both;" />'
-				+ '<div id="wareki-content"><div class="wareki-field-title">和暦</div>'
+				+ '<div id="wareki-content"><div class="wareki-field-title">和暦</div><div>'
 				+ '<label for="wareki-taisho"><input type="radio" id="wareki-taisho" name="wareki-nengo" value="t" />大正</label>'
 				+ '<label for="wareki-showa"><input type="radio" id="wareki-showa" name="wareki-nengo" value="s" />昭和</label>'
-				+ '<label for="wareki-heisei"><input type="radio" id="wareki-heisei" name="wareki-nengo" value="h" checked="checked" />平成</label><br />'
-				+ '<input type="text" id="wareki-wareki" />年<br />'
+				+ '<label for="wareki-heisei"><input type="radio" id="wareki-heisei" name="wareki-nengo" value="h" checked="checked" />平成</label>'
+				+ '</div><div><input type="text" id="wareki-wareki" />年</div><div>'
 				+ '<input type="button" id="wareki2year" value="和暦から西暦↓" />'
-				+ '<input type="button" id="year2wareki" value="↑西暦から和暦" /><br />'
-				+ '<div class="wareki-field-title">西暦</div><input type="text" id="wareki-year" />年</div></div>';
+				+ '<input type="button" id="year2wareki" value="↑西暦から和暦" />'
+				+ '</div><div class="wareki-field-title">西暦</div><input type="text" id="wareki-year" />年</div></div>';
 			$('body').append(html);
-			var $dlg = $('#wareki-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', width: '220px', height: '180px', position: 'absolute', display: 'none', 'z-index': '9998' });
-			$('#wareki-title').css({ width: '198px', height: '22px', float: 'left', background: '#cfd', cursor: 'move' });
-			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '198px', width: '22px', height: '22px', background: '#cfd', float: 'right', cursor: 'pointer' });
-			$('#wareki-content').css({ padding: '0', width: '220px', height: '158px', 'text-align': 'center' });
-			$('#wareki-content input[type=text]').css({ width: '160px', height: '16px', padding: '2px', 'text-align': 'right' });
-			$('#wareki-content input[type=button]').css('width', '100px');
+			var $dlg = $('#wareki-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', position: 'absolute', display: 'none', 'z-index': '9998' });
+			$('#wareki-title').css({ padding: '5px', width: '252px', float: 'left', background: '#cfd', cursor: 'move' });
+			$('#wareki-close').css({ positon: 'aboslute', top: '0px', left: '232px', padding: '5px' width: '20px', height: '20px', background: '#cfd', float: 'right', cursor: 'pointer' });
+			$('#wareki-content').css({ padding: '5px', 'text-align': 'center' });
+			$('#wareki-content input[type=text]').css({ padding: '5px', width: '200px', 'text-align': 'right' });
+			$('#wareki-content input[type=button]').css({ padding: '5px', width: '100px' });
 			$('.wareki-field-title').css('font-weight', 'bold');
 			$('#wareki2year').click(function () { wareki2year(); });
 			$('#year2wareki').click(function () { year2wareki(); });
