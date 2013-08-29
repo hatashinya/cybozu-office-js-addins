@@ -235,7 +235,7 @@ __modules.push({
 
 __modules.push({
 	name: 'ThreadHideSimpleReply',
-	desc: 'リアクションメニューをフォローを隠す。',
+	desc: 'リアクションメニューを隠す。',
 	link: false,
 	page: ['BulletinSend', 'BulletinModify', 'BulletinView', 'MyFolderMessageSend', 'MyFolderMessageModify', 'MyFolderMessageView', 'DBRecord'],
 	func: function () {
@@ -248,7 +248,8 @@ __modules.push({
 				$("#SimpleReplyEnable").removeAttr("checked");
 				break;
 			default:
-				$(".followMenuLinkWrapper").hide();
+				//$(".followMenuLinkWrapper").hide();
+				$('span[id^="simpleReplayLinkText"]').parents('.followMenuLinkWrapper').hide();
 				$(".simpleReplyUserList").hide();
 		}
 	},
