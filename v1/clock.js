@@ -77,7 +77,7 @@ __modules.push({
 
 				var year = now.getFullYear();
 				var month = now.getMonth() + 1;
-				var week = Ginger.weekName[now.getDay()];
+				var week = Ginger.OfficeClock.weekName[now.getDay()];
 
 				var rday = day;
 				var diff = 0;
