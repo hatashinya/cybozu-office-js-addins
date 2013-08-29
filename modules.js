@@ -253,6 +253,7 @@ __modules.push({
 		}
 	},
 	followFunc: function () {
+		alert('followFunc');
 		$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
 		$(".simpleReplyUserList").hide();
 	}
