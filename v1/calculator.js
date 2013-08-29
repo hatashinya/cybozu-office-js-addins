@@ -37,8 +37,8 @@
 			html += '</div></div>';
 			$('body').append(html);
 			var $dlg = $('#calc-dlg').css({ padding: '0px', background: '#fed', border: '1px solid #aaa', position: 'absolute', display: 'none', 'z-index': '9998' });
-			$('#calc-title').css({ padding: '5px', width: '252px', height: '24px', float: 'left', background: '#fdc', cursor: 'move' });
-			$('#calc-close').css({ padding: '5px', width: '24px', height: '20px', float: 'right', background: '#fdc', cursor: 'pointer', 'text-align': 'center' });
+			$('#calc-title').css({ padding: '5px', width: '230px', height: '24px', float: 'left', background: '#fdc', cursor: 'move' });
+			$('#calc-close').css({ padding: '5px', width: '24px', height: '24px', float: 'right', background: '#fdc', cursor: 'pointer', 'text-align': 'center' });
 			$('#calc-content').css({ padding: '5px' });
 			$('#calc-row').css({ padding: '0', margin: '0' });
 			$('#calc-result').css({ margin: '5px', padding: '5px', width: '225px', 'text-align': 'right' });
