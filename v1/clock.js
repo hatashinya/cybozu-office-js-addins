@@ -21,7 +21,7 @@ __modules.push({
 			$('body').append(html);
 			var $dlg = $('#clock-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', position: 'aboslute', display: 'none', 'z-index': '9998' });
 			$('#clock-title').css({ padding: '5px', width: '252px', float: 'left', background: '#cfd', cursor: 'move' });
-			$('#clock-close').css({ position: 'aboslute', top: '0px', left: '232px', padding: '5px', width: '20px', height: '20px', background: '#cfd', float: 'right', cursor: 'pointer' });
+			$('#clock-close').css({ padding: '5px', width: '20px', height: '20px', float: 'right', background: '#cfd', cursor: 'pointer' });
 			$('#clock-content').css({ padding: '5px', 'text-align': 'center' });
 			$('#clock-time').css({ 'margin-top': '5px', 'font-size': '45px' });
 			$('#clock-sec').css({ 'font-size': '20px' });
