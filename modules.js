@@ -248,13 +248,13 @@ __modules.push({
 				$("#SimpleReplyEnable").removeAttr("checked");
 				break;
 			default:
-				//$(".followMenuLinkWrapper").hide();
 				$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
 				$(".simpleReplyUserList").hide();
 		}
 	},
 	followFunc: function () {
-
+		$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
+		$(".simpleReplyUserList").hide();
 	}
 });
 
