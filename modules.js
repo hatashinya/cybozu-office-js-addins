@@ -249,7 +249,7 @@ __modules.push({
 				break;
 			default:
 				//$(".followMenuLinkWrapper").hide();
-				$('span[id^="simpleReplayLinkText"]').parents('.followMenuLinkWrapper').hide();
+				$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
 				$(".simpleReplyUserList").hide();
 		}
 	},
