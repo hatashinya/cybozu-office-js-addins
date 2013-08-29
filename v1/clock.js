@@ -19,7 +19,7 @@ __modules.push({
 			var html = '<div id="clock-dlg"><div id="clock-title">Office時計</div><div id="clock-close">&times;</div><br style="clear: both" />'
 				+ '<div id="clock-content"><div id="clock-time"></div><div id="clock-sec"></div><div id="clock-other"></div></div></div>';
 			$('body').append(html);
-			var $dlg = $('#clock-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', position: 'aboslute', display: 'none', 'z-index': '9998' });
+			var $dlg = $('#clock-dlg').css({ padding: '0px', background: '#dfe', border: '1px solid #aaa', position: 'absolute', display: 'none', 'z-index': '9998' });
 			$('#clock-title').css({ padding: '5px', width: '252px', float: 'left', background: '#cfd', cursor: 'move' });
 			$('#clock-close').css({ padding: '5px', width: '20px', height: '20px', float: 'right', background: '#cfd', cursor: 'pointer' });
 			$('#clock-content').css({ padding: '5px', 'text-align': 'center' });
