@@ -234,6 +234,30 @@ __modules.push({
 });
 
 __modules.push({
+	name: 'ThreadHideSimpleReply',
+	desc: 'リアクションメニューをフォローを隠す。',
+	link: false,
+	page: ['BulletinSend', 'BulletinModify', 'BulletinView', 'MyFolderMessageSend', 'MyFolderMessageModify', 'MyFolderMessageView', 'DBRecord'],
+	func: function () {
+		switch (CustomizeJS.page) {
+			case 'BulletinSend':
+			case 'BulletinModify':
+			case 'MyFolderMessageSend':
+			case 'MyFolderMessageModify':
+				$("#SimpleReplyEnableLabel").parent("td").parent("tr").hide();
+				$("#SimpleReplyEnable").removeAttr("checked");
+				break;
+			default:
+				$(".followMenuLinkWrapper").hide();
+				$(".simpleReplyUserList").hide();
+		}
+	},
+	followFunc: function () {
+
+	}
+});
+
+__modules.push({
 	name: 'BulletinHideListPerCategory',
 	desc: '掲示板のトップで、カテゴリごとの掲示一覧を隠す。',
 	link: true,
