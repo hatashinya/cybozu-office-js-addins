@@ -252,13 +252,14 @@ $(document).ready(function () {
 			window.RenderFollows = function (append, dummy) {
 				window.RenderFollowsOrig(append, dummy);
 				Ginger.execModuleAfterFollow();
+			};
 		}
 		if (CB7.followJQ.renderFollows) {
 			CB7.followJQ.renderFollowsOrig = CB7.followJQ.renderFollows;
 			CB7.followJQ.renderFollows = function (i, d, g) {
 				CB7.followJQ.renderFollowsOrig(i, d, g);
 				Ginger.execModuleAfterFollow();
-			}
+			};
 		}
 	}
 
