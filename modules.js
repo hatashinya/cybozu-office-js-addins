@@ -253,9 +253,11 @@ __modules.push({
 		}
 	},
 	followFunc: function () {
-		alert('followFunc');
-		$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
-		$(".simpleReplyUserList").hide();
+		var page = CustomizeJS.page;
+		if (page == 'BulletinView' || page == 'MyFolderMessageView' || page == 'DBRecord') {
+			$('span[id^="simpleReplyLinkText"]').parents('.followMenuLinkWrapper').hide();
+			$(".simpleReplyUserList").hide();
+		}
 	}
 });
 

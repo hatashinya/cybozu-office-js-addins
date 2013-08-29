@@ -80,6 +80,17 @@ Ginger.execEmbed = function (modules, anchor) {
 	}
 };
 
+Ginger.execModuleAfterFollow = function () {
+	var pm = Ginger.pageModules;
+	Ginger.execModule(pm, true);
+
+	if (Ginger.embed) {
+		$('.vr_followList:last tt a').each(function () {
+			Ginger.execEmbed(pm, this);
+		});
+	}
+};
+
 Ginger.htmlEscape = function (text) {
 	return text ? text.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : "";
 };
@@ -235,18 +246,18 @@ $(document).ready(function () {
 		});
 	}
 
-	if ((Ginger.follow || Ginger.embed) && window.RenderFollows) {
-		window.RenderFollowsOrig = window.RenderFollows;
-		window.RenderFollows = function (append, dummy) {
-			window.RenderFollowsOrig(append, dummy);
-
-			var pm = Ginger.pageModules;
-			Ginger.execModule(pm, true);
-
-			if (Ginger.embed) {
-				$('.vr_followList:last tt a').each(function () {
-					Ginger.execEmbed(pm, this);
-				});
+	if ((Ginger.follow || Ginger.embed) && (window.RenderFollows || CB7.followJQ.renderFollows)) {
+		if (window.RenderFollows) {
+			window.RenderFollowsOrig = window.RenderFollows;
+			window.RenderFollows = function (append, dummy) {
+				window.RenderFollowsOrig(append, dummy);
+				Ginger.execModuleAfterFollow();
+		}
+		if (CB7.followJQ.renderFollows) {
+			CB7.followJQ.renderFollowsOrig = CB7.followJQ.renderFollows;
+			CB7.followJQ.renderFollows = function (i, d, g) {
+				CB7.followJQ.renderFollowsOrig(i, d, g);
+				Ginger.execModuleAfterFollow();
 			}
 		}
 	}
