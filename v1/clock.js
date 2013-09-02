@@ -1,7 +1,7 @@
 __modules.push({
 	name: 'CommonOfficeClock',
 	desc: 'アプリケーションメニューにOffice時計を加える。',
-	link: false,
+	link: true,
 	func: function () {
 		var html = '<span class="appMenuItem"><a id="clock-popup" href="#"><span class="appmenuimg csssp csssp_dz_db32_png"></span><br />'
 			+ '<span class="vr_naviAppMenu">Office時計</span></a></span>';

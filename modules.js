@@ -236,7 +236,7 @@ __modules.push({
 __modules.push({
 	name: 'ThreadHideSimpleReply',
 	desc: 'リアクションメニューを隠す。',
-	link: false,
+	link: true,
 	page: ['BulletinSend', 'BulletinModify', 'BulletinView', 'MyFolderMessageSend', 'MyFolderMessageModify', 'MyFolderMessageView', 'DBRecord'],
 	func: function () {
 		switch (CustomizeJS.page) {

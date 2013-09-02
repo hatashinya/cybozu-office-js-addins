@@ -1,7 +1,7 @@
 __modules.push({
 	name: 'CommonWareki',
 	desc: 'アプリケーションメニューに和暦変換を加える。',
-	link: false,
+	link: true,
 	func: function () {
 		var html = '<span class="appMenuItem"><a id="wareki-popup" href="#"><span class="appmenuimg csssp csssp_dz_db32_png"></span><br />'
 			+ '<span class="vr_naviAppMenu">和暦変換</span></a></span>';
