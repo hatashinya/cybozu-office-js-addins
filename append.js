@@ -246,7 +246,7 @@ $(document).ready(function () {
 		});
 	}
 
-	if ((Ginger.follow || Ginger.embed) && (window.RenderFollows || CB7.followJQ.renderFollows)) {
+	if ((Ginger.follow || Ginger.embed) && (window.RenderFollows || (CB7.followJQ && CB7.followJQ.renderFollows))) {
 		if (window.RenderFollows) {
 			window.RenderFollowsOrig = window.RenderFollows;
 			window.RenderFollows = function (append, dummy) {
