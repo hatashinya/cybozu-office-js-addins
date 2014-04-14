@@ -3,7 +3,7 @@ __modules.push({
 	desc: 'アプリケーションメニューにOffice時計を加える。',
 	link: true,
 	func: function () {
-		var html = '<span class="appMenuItem"><a id="clock-popup" href="#"><span class="appmenuimg csssp csssp_dz_db32_png"></span><br />'
+		var html = '<span class="appMenuItem"><a id="clock-popup" href="#"><span class="appmenucss appMenuDBIndex"></span><br />'
 			+ '<span class="vr_naviAppMenu">Office時計</span></a></span>';
 		$('#appIconMenuFrame div.vr_naviAppMenu').append(html);
 		$('#clock-popup').click(function () {

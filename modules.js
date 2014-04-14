@@ -317,7 +317,7 @@ __modules.push({
 				if (!day1st) day1st = day;
 				var linkTd = tds.last();
 				if (linkTd.find("a").length == 0) {
-					linkTd.prepend('<a class="" href="ag.cgi?page=TimeCardModify&UID=&gid=&BDate=da.' + year1st + '.' + month1st + '.' + day1st + '&Date=da.' + year + '.' + month + '.' + day + '&cp=tv"><span class="csssp csssp_write16_png cssspOpt"></span></a>&nbsp;');
+					linkTd.prepend('<a class="" href="ag.cgi?page=TimeCardModify&UID=&gid=&BDate=da.' + year1st + '.' + month1st + '.' + day1st + '&Date=da.' + year + '.' + month + '.' + day + '&cp=tv"><img src="' + CB7.IMG_PATH + '/write16.png" align="absmiddle" /></a>&nbsp;');
 				}
 			}
 		});

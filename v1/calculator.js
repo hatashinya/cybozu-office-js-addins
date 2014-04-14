@@ -3,7 +3,7 @@
 	desc: 'アプリケーションメニューに電卓を加える。',
 	link: true,
 	func: function () {
-		var html = '<span class="appMenuItem"><a id="calc-popup" href="#"><span class="appmenuimg csssp csssp_dz_db32_png"></span><br />'
+		var html = '<span class="appMenuItem"><a id="calc-popup" href="#"><span class="appmenucss appMenuDBIndex"></span><br />'
 			+ '<span class="vr_naviAppMenu">電卓</span></a></span>';
 		$('#appIconMenuFrame div.vr_naviAppMenu').append(html);
 		$('#calc-popup').click(function () {
