@@ -30,9 +30,9 @@ Ginger.loadLibrary = function (name) {
 			Ginger.loadScript('https://js.cybozu.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js');
 			break;
 		case 'prettify':
-			//Ginger.loadStyle('https://js.cybozu.com/prettify/1-Jun-2011/prettify.css');
-			//Ginger.loadScript('https://js.cybozu.com/prettify/1-Jun-2011/prettify.js');
-			Ginger.loadScript('https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js');
+			Ginger.loadStyle('https://js.cybozu.com/prettify/4-Mar-2013/prettify.css');
+			Ginger.loadScript('https://js.cybozu.com/prettify/4-Mar-2013/prettify.js');
+			//Ginger.loadScript('https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js');
 			break;
 	};
 };
