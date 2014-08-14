@@ -175,6 +175,7 @@ __modules.push({
 			id = RegExp.$1;
 		} else if (href.indexOf('http://youtu.be/') == 0) {
 			id = href.substr(href.lastIndexOf('/') + 1);
+			if (!id.match(/^[a-zA-Z0-9]+$/)) return;
 		} else {
 			return;
 		}
